@@ -7,15 +7,14 @@
     </ion-header>
 
     <ion-content class="ion-padding">
-      <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-6">Manage your budget</h1>
-        <p class="text-lg text-center mb-8">Simple and intuitive app for tracking your expenses and managing your budget</p>
-
-        <div class="flex justify-center space-x-4">
-          <ion-button router-link="/login" expand="block" class="w-32">Log in</ion-button>
-          <ion-button router-link="/register" expand="block" color="secondary" class="w-32">Register</ion-button>
-        </div>
-      </div>
+      <authenticator>
+        <template v-slot="{ user, signOut }">
+          <div class="text-center">
+            <p class="text-xl font-semibold mb-4">Hello, {{ user.username }}!</p>
+            <ion-button expand="block" @click="signOut">Sign out</ion-button>
+          </div>
+        </template>
+      </authenticator>
     </ion-content>
   </ion-page>
 </template>
